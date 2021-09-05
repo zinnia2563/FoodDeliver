@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Food_Deliver</string>
+    <string name="search">Search...</string>
+    <string name="ptw">Popular this Week</string>
+</resources>
