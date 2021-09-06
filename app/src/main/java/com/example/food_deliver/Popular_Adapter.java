@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.food_deliver.model.Popular;
 
 import java.util.List;
@@ -18,6 +19,11 @@ public class Popular_Adapter extends RecyclerView.Adapter<Popular_Adapter.Popula
 
      private Context context;
      private List<Popular>popularList;
+
+    public Popular_Adapter(Context context, List<Popular> popularList) {
+        this.context = context;
+        this.popularList = popularList;
+    }
 
     @NonNull
     @Override
@@ -34,6 +40,7 @@ public class Popular_Adapter extends RecyclerView.Adapter<Popular_Adapter.Popula
 
         //for image add glide library
 
+        Glide.with(context).load(popularList.get(position)).into(holder.popularImage);
     }
 
     @Override

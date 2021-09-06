@@ -5,7 +5,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.food_deliver.model.FoodData;
+
+import com.example.food_deliver.model.Popular;
 import com.example.food_deliver.retrofit.ApiInterface;
 import com.example.food_deliver.retrofit.RetrofitClient;
 
@@ -19,6 +24,11 @@ public class MainActivity extends AppCompatActivity {
 
     ApiInterface apiInterface;
 
+    //setup data in rv
+
+    RecyclerView popularRecyclerView;
+
+     Popular_Adapter popular_adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<List<FoodData>> call, Response<List<FoodData>> response) {
                 List<FoodData> foodDataList = response.body();
 
+                getPopularData(foodDataList.get(0).getPopular());
+
 
                 // show data in rv;
                 // rv in adapter
@@ -47,5 +59,20 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Server is not responding", Toast.LENGTH_SHORT).show();
             }
         });
+
+        }
+
+    private void  getPopularData(List<Popular> popularList){
+
+        popularRecyclerView = findViewById(R.id.popular_recyclerview);
+        popular_adapter = new Popular_Adapter(this, popularList);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        popularRecyclerView.setLayoutManager(layoutManager);
+        popularRecyclerView.setAdapter(popular_adapter);
+
     }
-}
+
+
+       }
+
+
