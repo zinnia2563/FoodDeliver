@@ -1,5 +1,5 @@
 
-package com.example.food_deliver.model;
+package com.example.food_deliver;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

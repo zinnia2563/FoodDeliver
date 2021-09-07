@@ -1,5 +1,5 @@
 
-package com.example.food_deliver.model;
+package com.example.food_deliver;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -13,7 +13,7 @@ public class FoodData {
     private List<Popular> popular = null;
     @SerializedName("recommended")
     @Expose
-    private List<Recommended> recommended = null;
+    private List<com.rajendra.foodapp.model.Recommended> recommended = null;
     @SerializedName("allmenu")
     @Expose
     private List<Allmenu> allmenu = null;
@@ -26,11 +26,11 @@ public class FoodData {
         this.popular = popular;
     }
 
-    public List<Recommended> getRecommended() {
+    public List<com.rajendra.foodapp.model.Recommended> getRecommended() {
         return recommended;
     }
 
-    public void setRecommended(List<Recommended> recommended) {
+    public void setRecommended(List<com.rajendra.foodapp.model.Recommended> recommended) {
         this.recommended = recommended;
     }
 

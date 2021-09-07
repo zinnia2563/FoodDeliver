@@ -1,20 +1,20 @@
-package com.example.food_deliver.retrofit;
+package com.example.food_deliver;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
+
     private static Retrofit retrofit;
     private static final String BASE_URL = "https://androidappsforyoutube.s3.ap-south-1.amazonaws.com/foodapp/";
 
-    public static Retrofit getRetrofitInstance() {
+    public static Retrofit getRetrofitInstance(){
 
-        if (retrofit == null) {
+        if(retrofit == null){
             retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                     .addConverterFactory(GsonConverterFactory.create())
+                        .baseUrl(BASE_URL)
+                        .addConverterFactory(GsonConverterFactory.create())
                     .build();
-
 
         }
         return retrofit;

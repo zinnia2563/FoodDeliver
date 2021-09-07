@@ -1,6 +1,4 @@
-package com.example.food_deliver.retrofit;
-
-import com.example.food_deliver.model.FoodData;
+package com.example.food_deliver;
 
 import java.util.List;
 
@@ -12,5 +10,7 @@ public interface ApiInterface {
     @GET("fooddata.json")
     Call<List<FoodData>> getAllData();
 
+
+    // lets make our model class of json data.
 
 }
